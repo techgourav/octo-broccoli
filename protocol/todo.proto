@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package todo;
+option go_package="todopb";
+
+message Todo {
+	string task = 1;
+}
+
+message CreateTodoRequest {
+	Todo task = 1;
+}
+
+message CreateTodoResponse {
+	bool status = 1;
+	Todo task = 2;
+}
+
+service TodoService {
+	// unary
+	rpc create(CreateTodoRequest) returns (CreateTodoResponse) {};
+}
