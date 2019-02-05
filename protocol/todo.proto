@@ -4,19 +4,30 @@ package todo;
 option go_package="todopb";
 
 message Todo {
-	string task = 1;
+	string text = 1;
 }
 
 message CreateTodoRequest {
-	Todo task = 1;
+	Todo todo = 1;
 }
 
 message CreateTodoResponse {
 	bool status = 1;
-	Todo task = 2;
+	Todo todo = 2;
+}
+
+message GetTodoRequest {
+	Todo todo = 1;
+}
+
+message GetTodoResponse {
+	Todo todo = 1;
 }
 
 service TodoService {
 	// unary
-	rpc create(CreateTodoRequest) returns (CreateTodoResponse) {};
+	rpc Create(CreateTodoRequest) returns (CreateTodoResponse) {};
+
+	// server streaming
+	rpc GetAll(GetTodoRequest) returns (stream GetTodoResponse) {};
 }

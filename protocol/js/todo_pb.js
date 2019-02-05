@@ -13,6 +13,8 @@ var global = Function('return this')();
 
 goog.exportSymbol('proto.todo.CreateTodoRequest', null, global);
 goog.exportSymbol('proto.todo.CreateTodoResponse', null, global);
+goog.exportSymbol('proto.todo.GetTodoRequest', null, global);
+goog.exportSymbol('proto.todo.GetTodoResponse', null, global);
 goog.exportSymbol('proto.todo.Todo', null, global);
 
 /**
@@ -61,7 +63,7 @@ proto.todo.Todo.prototype.toObject = function(opt_includeInstance) {
  */
 proto.todo.Todo.toObject = function(includeInstance, msg) {
   var f, obj = {
-    task: jspb.Message.getFieldWithDefault(msg, 1, "")
+    text: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -100,7 +102,7 @@ proto.todo.Todo.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setTask(value);
+      msg.setText(value);
       break;
     default:
       reader.skipField();
@@ -131,7 +133,7 @@ proto.todo.Todo.prototype.serializeBinary = function() {
  */
 proto.todo.Todo.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getTask();
+  f = message.getText();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -142,16 +144,16 @@ proto.todo.Todo.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string task = 1;
+ * optional string text = 1;
  * @return {string}
  */
-proto.todo.Todo.prototype.getTask = function() {
+proto.todo.Todo.prototype.getText = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /** @param {string} value */
-proto.todo.Todo.prototype.setTask = function(value) {
+proto.todo.Todo.prototype.setText = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
 
@@ -203,7 +205,7 @@ proto.todo.CreateTodoRequest.prototype.toObject = function(opt_includeInstance) 
  */
 proto.todo.CreateTodoRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    task: (f = msg.getTask()) && proto.todo.Todo.toObject(includeInstance, f)
+    todo: (f = msg.getTodo()) && proto.todo.Todo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -243,7 +245,7 @@ proto.todo.CreateTodoRequest.deserializeBinaryFromReader = function(msg, reader)
     case 1:
       var value = new proto.todo.Todo;
       reader.readMessage(value,proto.todo.Todo.deserializeBinaryFromReader);
-      msg.setTask(value);
+      msg.setTodo(value);
       break;
     default:
       reader.skipField();
@@ -274,7 +276,7 @@ proto.todo.CreateTodoRequest.prototype.serializeBinary = function() {
  */
 proto.todo.CreateTodoRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getTask();
+  f = message.getTodo();
   if (f != null) {
     writer.writeMessage(
       1,
@@ -286,23 +288,23 @@ proto.todo.CreateTodoRequest.serializeBinaryToWriter = function(message, writer)
 
 
 /**
- * optional Todo task = 1;
+ * optional Todo todo = 1;
  * @return {?proto.todo.Todo}
  */
-proto.todo.CreateTodoRequest.prototype.getTask = function() {
+proto.todo.CreateTodoRequest.prototype.getTodo = function() {
   return /** @type{?proto.todo.Todo} */ (
     jspb.Message.getWrapperField(this, proto.todo.Todo, 1));
 };
 
 
 /** @param {?proto.todo.Todo|undefined} value */
-proto.todo.CreateTodoRequest.prototype.setTask = function(value) {
+proto.todo.CreateTodoRequest.prototype.setTodo = function(value) {
   jspb.Message.setWrapperField(this, 1, value);
 };
 
 
-proto.todo.CreateTodoRequest.prototype.clearTask = function() {
-  this.setTask(undefined);
+proto.todo.CreateTodoRequest.prototype.clearTodo = function() {
+  this.setTodo(undefined);
 };
 
 
@@ -310,7 +312,7 @@ proto.todo.CreateTodoRequest.prototype.clearTask = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.todo.CreateTodoRequest.prototype.hasTask = function() {
+proto.todo.CreateTodoRequest.prototype.hasTodo = function() {
   return jspb.Message.getField(this, 1) != null;
 };
 
@@ -363,7 +365,7 @@ proto.todo.CreateTodoResponse.prototype.toObject = function(opt_includeInstance)
 proto.todo.CreateTodoResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     status: jspb.Message.getFieldWithDefault(msg, 1, false),
-    task: (f = msg.getTask()) && proto.todo.Todo.toObject(includeInstance, f)
+    todo: (f = msg.getTodo()) && proto.todo.Todo.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -407,7 +409,7 @@ proto.todo.CreateTodoResponse.deserializeBinaryFromReader = function(msg, reader
     case 2:
       var value = new proto.todo.Todo;
       reader.readMessage(value,proto.todo.Todo.deserializeBinaryFromReader);
-      msg.setTask(value);
+      msg.setTodo(value);
       break;
     default:
       reader.skipField();
@@ -445,7 +447,7 @@ proto.todo.CreateTodoResponse.serializeBinaryToWriter = function(message, writer
       f
     );
   }
-  f = message.getTask();
+  f = message.getTodo();
   if (f != null) {
     writer.writeMessage(
       2,
@@ -474,23 +476,23 @@ proto.todo.CreateTodoResponse.prototype.setStatus = function(value) {
 
 
 /**
- * optional Todo task = 2;
+ * optional Todo todo = 2;
  * @return {?proto.todo.Todo}
  */
-proto.todo.CreateTodoResponse.prototype.getTask = function() {
+proto.todo.CreateTodoResponse.prototype.getTodo = function() {
   return /** @type{?proto.todo.Todo} */ (
     jspb.Message.getWrapperField(this, proto.todo.Todo, 2));
 };
 
 
 /** @param {?proto.todo.Todo|undefined} value */
-proto.todo.CreateTodoResponse.prototype.setTask = function(value) {
+proto.todo.CreateTodoResponse.prototype.setTodo = function(value) {
   jspb.Message.setWrapperField(this, 2, value);
 };
 
 
-proto.todo.CreateTodoResponse.prototype.clearTask = function() {
-  this.setTask(undefined);
+proto.todo.CreateTodoResponse.prototype.clearTodo = function() {
+  this.setTodo(undefined);
 };
 
 
@@ -498,8 +500,326 @@ proto.todo.CreateTodoResponse.prototype.clearTask = function() {
  * Returns whether this field is set.
  * @return {!boolean}
  */
-proto.todo.CreateTodoResponse.prototype.hasTask = function() {
+proto.todo.CreateTodoResponse.prototype.hasTodo = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.todo.GetTodoRequest = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.todo.GetTodoRequest, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.todo.GetTodoRequest.displayName = 'proto.todo.GetTodoRequest';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.todo.GetTodoRequest.prototype.toObject = function(opt_includeInstance) {
+  return proto.todo.GetTodoRequest.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.todo.GetTodoRequest} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.todo.GetTodoRequest.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    todo: (f = msg.getTodo()) && proto.todo.Todo.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.todo.GetTodoRequest}
+ */
+proto.todo.GetTodoRequest.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.todo.GetTodoRequest;
+  return proto.todo.GetTodoRequest.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.todo.GetTodoRequest} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.todo.GetTodoRequest}
+ */
+proto.todo.GetTodoRequest.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.todo.Todo;
+      reader.readMessage(value,proto.todo.Todo.deserializeBinaryFromReader);
+      msg.setTodo(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.todo.GetTodoRequest.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.todo.GetTodoRequest.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.todo.GetTodoRequest} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.todo.GetTodoRequest.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getTodo();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.todo.Todo.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional Todo todo = 1;
+ * @return {?proto.todo.Todo}
+ */
+proto.todo.GetTodoRequest.prototype.getTodo = function() {
+  return /** @type{?proto.todo.Todo} */ (
+    jspb.Message.getWrapperField(this, proto.todo.Todo, 1));
+};
+
+
+/** @param {?proto.todo.Todo|undefined} value */
+proto.todo.GetTodoRequest.prototype.setTodo = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.todo.GetTodoRequest.prototype.clearTodo = function() {
+  this.setTodo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.todo.GetTodoRequest.prototype.hasTodo = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+
+/**
+ * Generated by JsPbCodeGenerator.
+ * @param {Array=} opt_data Optional initial data array, typically from a
+ * server response, or constructed directly in Javascript. The array is used
+ * in place and becomes part of the constructed object. It is not cloned.
+ * If no data is provided, the constructed object will be empty, but still
+ * valid.
+ * @extends {jspb.Message}
+ * @constructor
+ */
+proto.todo.GetTodoResponse = function(opt_data) {
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+};
+goog.inherits(proto.todo.GetTodoResponse, jspb.Message);
+if (goog.DEBUG && !COMPILED) {
+  proto.todo.GetTodoResponse.displayName = 'proto.todo.GetTodoResponse';
+}
+
+
+if (jspb.Message.GENERATE_TO_OBJECT) {
+/**
+ * Creates an object representation of this proto suitable for use in Soy templates.
+ * Field names that are reserved in JavaScript and will be renamed to pb_name.
+ * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+ * For the list of reserved names please see:
+ *     com.google.apps.jspb.JsClassTemplate.JS_RESERVED_WORDS.
+ * @param {boolean=} opt_includeInstance Whether to include the JSPB instance
+ *     for transitional soy proto support: http://goto/soy-param-migration
+ * @return {!Object}
+ */
+proto.todo.GetTodoResponse.prototype.toObject = function(opt_includeInstance) {
+  return proto.todo.GetTodoResponse.toObject(opt_includeInstance, this);
+};
+
+
+/**
+ * Static version of the {@see toObject} method.
+ * @param {boolean|undefined} includeInstance Whether to include the JSPB
+ *     instance for transitional soy proto support:
+ *     http://goto/soy-param-migration
+ * @param {!proto.todo.GetTodoResponse} msg The msg instance to transform.
+ * @return {!Object}
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.todo.GetTodoResponse.toObject = function(includeInstance, msg) {
+  var f, obj = {
+    todo: (f = msg.getTodo()) && proto.todo.Todo.toObject(includeInstance, f)
+  };
+
+  if (includeInstance) {
+    obj.$jspbMessageInstance = msg;
+  }
+  return obj;
+};
+}
+
+
+/**
+ * Deserializes binary data (in protobuf wire format).
+ * @param {jspb.ByteSource} bytes The bytes to deserialize.
+ * @return {!proto.todo.GetTodoResponse}
+ */
+proto.todo.GetTodoResponse.deserializeBinary = function(bytes) {
+  var reader = new jspb.BinaryReader(bytes);
+  var msg = new proto.todo.GetTodoResponse;
+  return proto.todo.GetTodoResponse.deserializeBinaryFromReader(msg, reader);
+};
+
+
+/**
+ * Deserializes binary data (in protobuf wire format) from the
+ * given reader into the given message object.
+ * @param {!proto.todo.GetTodoResponse} msg The message object to deserialize into.
+ * @param {!jspb.BinaryReader} reader The BinaryReader to use.
+ * @return {!proto.todo.GetTodoResponse}
+ */
+proto.todo.GetTodoResponse.deserializeBinaryFromReader = function(msg, reader) {
+  while (reader.nextField()) {
+    if (reader.isEndGroup()) {
+      break;
+    }
+    var field = reader.getFieldNumber();
+    switch (field) {
+    case 1:
+      var value = new proto.todo.Todo;
+      reader.readMessage(value,proto.todo.Todo.deserializeBinaryFromReader);
+      msg.setTodo(value);
+      break;
+    default:
+      reader.skipField();
+      break;
+    }
+  }
+  return msg;
+};
+
+
+/**
+ * Serializes the message to binary data (in protobuf wire format).
+ * @return {!Uint8Array}
+ */
+proto.todo.GetTodoResponse.prototype.serializeBinary = function() {
+  var writer = new jspb.BinaryWriter();
+  proto.todo.GetTodoResponse.serializeBinaryToWriter(this, writer);
+  return writer.getResultBuffer();
+};
+
+
+/**
+ * Serializes the given message to binary data (in protobuf wire
+ * format), writing to the given BinaryWriter.
+ * @param {!proto.todo.GetTodoResponse} message
+ * @param {!jspb.BinaryWriter} writer
+ * @suppress {unusedLocalVariables} f is only used for nested messages
+ */
+proto.todo.GetTodoResponse.serializeBinaryToWriter = function(message, writer) {
+  var f = undefined;
+  f = message.getTodo();
+  if (f != null) {
+    writer.writeMessage(
+      1,
+      f,
+      proto.todo.Todo.serializeBinaryToWriter
+    );
+  }
+};
+
+
+/**
+ * optional Todo todo = 1;
+ * @return {?proto.todo.Todo}
+ */
+proto.todo.GetTodoResponse.prototype.getTodo = function() {
+  return /** @type{?proto.todo.Todo} */ (
+    jspb.Message.getWrapperField(this, proto.todo.Todo, 1));
+};
+
+
+/** @param {?proto.todo.Todo|undefined} value */
+proto.todo.GetTodoResponse.prototype.setTodo = function(value) {
+  jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+proto.todo.GetTodoResponse.prototype.clearTodo = function() {
+  this.setTodo(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {!boolean}
+ */
+proto.todo.GetTodoResponse.prototype.hasTodo = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 

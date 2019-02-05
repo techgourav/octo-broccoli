@@ -23,8 +23,8 @@ func Init() error {
 	return nil
 }
 
-// WriteDB : Writes a todo to the db
-func WriteDB(todo string) error {
+// Create : Create a todo to the db
+func Create(todo string) error {
 	err := db.Write("todo", todo, models.Todo{Text: todo})
 	if err != nil {
 		return err
